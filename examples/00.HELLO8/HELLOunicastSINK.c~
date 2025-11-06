@@ -1,0 +1,21 @@
+#include "contiki.h"
+#include "net/rime/rime.h"
+#include <stdio.h>
+
+//SENSORES
+#include "dev/sht11/sht11-sensor.h"
+
+#define DESTINO 1
+
+
+/*---------------------------------------------------------------------------*/
+static void
+recv_uc(struct unicast_conn *c, const linkaddr_t *from)
+{
+	printf("%d recebe '%s' de  %d\n",
+        DESTINO,          
+	(char *)packetbuf_dataptr(),
+         from->u8[0]);
+}
+
+
