@@ -1,3 +1,6 @@
+# se nao quiser quebrar a cabeça com isso
+#   apenas desative o secure boot temporariamente
+
 # gerando e importando uma chave
 openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=VMware/"
 sudo mokutil --import MOK.der
