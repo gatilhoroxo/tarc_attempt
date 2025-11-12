@@ -6,11 +6,10 @@ sudo update-alternatives --config java
 # escolher a versao 8
 
 sudo snap install code --classic
-
 sudo snap install gh
 
-git clone https://github.com/gatilhoroxo/contiki.git
 git clone https://github.com/gatilhoroxo/tarc_attempt.git
+git submodule update --init --recursive
 
 cd contiki/tools/cooja
 sudo ant run
