@@ -1,33 +1,32 @@
+#
+# I did this just to work to virtual machines
+#   with the op. system Ubuntu 20
+# Think better if you want to do this,
+#   i guess it work with the op. system itself
+#   but i didnt test it yet
+#
+
+echo '*** Update and Upgrade System'
 sudo apt update
 sudo apt upgrade
+
+echo '*** Install COOJA library and componets'
 sudo apt-get install git build-essential doxygen curl wireshark  binutils-msp430 gcc-msp430 msp430-libc msp430mcu mspdebug gcc-arm-none-eabi openjdk-8-jdk openjdk-8-jre ant libncurses5-dev avr-libc gcc-avr
 
+echo '*** Select SDK java-8-openjdk'
 sudo update-alternatives --config java
 # escolher a versao 8
 
+echo '*** Install VScode and github authentication'
 sudo snap install code --classic
 sudo snap install gh
 
+echo '*** Download COOJA 3.0 github (version of gatilhoroxo)'
 git clone https://github.com/gatilhoroxo/tarc_attempt.git
 git submodule update --init --recursive
 
+echo '*** Successful installation!!!'
+
+echo '*** Open COOJA:'
 cd contiki/tools/cooja
 sudo ant run
-
-
-
-#APENAS PARA VERSAO 20.04 DO UBUNTU
-# essa parte eh soh se for fazer o install do zero com o .sh
-#chmod +x install.sh
-#./install.sh
-#nano .gitmodules #comentar linhas que envolvam o stm32
-#nano .git/config #o mesmo do comando de cima
-#git submodule sync
-#git submodule update --init --recursive
-#git submodule deinit -f .
-#git rm -f platform/stm32nucleo-spirit1/stm32cube-lib
-#git add . && git submodule sync
-#git rm -f platform/stm32nucleo-spirit1/stm32cube-lib
-#rm -rf .git/modules/platform/stm32nucleo-spirit1
-#git submodule sync
-#git submodule update --init --recursive
